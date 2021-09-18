@@ -1,6 +1,7 @@
 package com.pessoalBlog.pessoalBlog.security;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -13,6 +14,7 @@ public class UserDetailsImplements implements UserDetails {
 	
 	private String userName;
 	private String password;
+	private List<GrantedAuthority> authorities;
 	
 	public UserDetailsImplements(Usuario user) {
 		this.setUserName(user.getNomeUsuario());
@@ -25,7 +27,7 @@ public class UserDetailsImplements implements UserDetails {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return null;
+		return authorities;
 	}
 	
 	@Override
@@ -61,7 +63,7 @@ public class UserDetailsImplements implements UserDetails {
 	@Override
 	public boolean isEnabled() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 
 	public void setPassword(String password) {
